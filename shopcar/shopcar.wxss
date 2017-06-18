@@ -1,0 +1,10 @@
+.shopcarSock{
+  background-color:white;
+  margin-top:10px;
+}
+.foot-count{
+  position:fixed;
+  bottom:0px;
+  background-color:white;
+  width:100%;
+}

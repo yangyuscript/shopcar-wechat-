@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="choice_box">
+    <block wx:for="{{userShopcarSocks}}">
+      <!--单个购物车商品-->
+      <view class="page__bd page__bd_spacing">
+        <view class="weui-flex shopcarSock">
+          <view class="select">
+            <icon style="margin-top:30px;" bindtap="bindSelectOne" data-index="{{index}}" type="success" size="23" wx:if="{{item.selected}}"></icon>
+            <icon style="margin-top:30px;" bindtap="bindSelectOne" data-index="{{index}}" type="circle" size="23" wx:if="{{!item.selected}}"></icon>
+          </view>
+          <view class="weui-flex__item">
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="{{sockPicUrl+item.sock.head}}" />
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">
+                  <view class="weui-flex">
+                    <view class="weui-flex__item">
+                      {{item.sock.title}}
+                    </view>
+                  </view>
+                </view>
+                <view class="weui-media-box__desc">
+                  <view class="weui-flex">
+                    <view class="">
+                      <button disabled='{{minusStatuses[index]}}' data-index="{{index}}" bindtap="bindMinus" class="weui-btn mini-btn" type="primary" size="mini">-</button>
+                    </view>
+                    <view class="">
+                      <view style="width:40px;font-weight: bold;text-align:center;margin-top:20%;">{{item.num}}</view>
+                    </view>
+                    <view class="">
+                      <button class="weui-btn mini-btn" data-index="{{index}}" bindtap="bindPlus" type="primary" size="mini">+</button>
+                    </view>
+                    <view class="weui-flex__item" style="text-align:center;">
+                      单价： {{item.sock.price}}元
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--单个购物车商品结束-->
+    </block>
+    <!--底部结算-->
+    <view class="foot-count">
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <icon style="" bindtap="bindSelectAllhah" type="success" size="23" wx:if="{{selectAll}}"></icon>
+          <icon style="" bindtap="bindSelectAllhah" type="circle" size="23" wx:if="{{!selectAll}}"></icon>
+          全选<span style="color:red;">    ￥{{totalsum}}  </span>共{{totalnum}}件
+        </view>
+        <view>
+          <button class="weui-btn" bindtap="bindbuynow" type="warn">立即结算</button>
+        </view>
+      </view>
+    </view>
+    <!--底部结算结束-->
+  </view>
+</view>
